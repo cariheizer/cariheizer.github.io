@@ -7,7 +7,7 @@
 }
 
 header {
-    grid-column: 2 / span 6;
+    grid-column: 1 / -1;
     grid-row: 1 / 2;
     background-color: #055da8;
     color:#FFFFFF;
@@ -18,6 +18,8 @@ header {
 }
 header > img{
     width: 15%;
+    max-width: 150px;
+    height: auto;
     float:left;
 }
 #projects{
@@ -33,7 +35,7 @@ header > img{
 }
 
 nav {
-    grid-column: 2 / span 6;
+    grid-column: 1/-1;
     grid-row: 2 / 3;
     background-color: #055da8;
     padding: 20px;
@@ -91,6 +93,10 @@ table {
 h2 > img{
     width:auto;
 }
+.flex-item > h3{
+    text-align: center;
+    color:#FFFFFF;
+}
 
 p{
     text-align: left;
@@ -100,12 +106,13 @@ p{
 }
 
 footer {
-    grid-column: 2 / span 6;
+    grid-column: 1 / -1;
     grid-row: 9 / 10;
     background-color: #FFCD34;
     color:#055DA8;
     text-align: center;
-    padding: 4px;
+    padding: 10px;
+    margin: 10px;
 }
 body {
     margin:0;
@@ -113,13 +120,18 @@ body {
     padding: 20px;
     background-image: url("images/circuitbackground.png");
     background-repeat: repeat;
+    background-color: rgba(255, 255, 255, 0.5); 
+    background-blend-mode: lighten; 
+        
 }
 .flex-container {
     display: flex;
+    justify-content:center; 
     flex-direction: column;
     gap: 10px; 
     grid-row: 4 / 9;
 }
+
 .flex-item {
     display: flex;
     align-items: center;
@@ -137,7 +149,7 @@ body {
     flex-direction: row-reverse;
 }
 .flex-item img{
-    width: auto;
+    max-width: 100%;
     height:auto;
     border-radius: 4px;
     flex-shrink:0;
@@ -147,6 +159,7 @@ body {
     padding: 20px;
     color:#f4f4f4;
 }
+
 .info{
     flex-grow:1;
     padding: 20px;
@@ -175,7 +188,20 @@ body {
         padding: 1rem;
         width: 90%;
     }
-} 
+    .introduction{
+        align-items:center
+    }
+    header > img{
+        width: 20%;
+        max-width: 100px;
+        float: none;
+        display:block;
+        margin: 0 auto;
+    }
+    div.scroll-container img {
+        width: 120px; 
+    }
+}
 @media (max-width: 768px) {
     .wrapper {
         grid-template-columns: 1fr; 
@@ -223,6 +249,18 @@ body {
     .project iframe {
         max-width: 100%; 
     }
+    .introduction{
+        align-items:center
+    }
+    header > img{
+        width: 30%;
+        max-width: 80px;
+        float: none;
+        margin: 0 auto;
+    }
+    div.scroll-container img {
+        width: 150px; 
+    }
 }
 .introduction {
     display: flex;
@@ -262,3 +300,29 @@ body {
     aspect-ratio: 7 / 5;
     border: 0;
 }
+#center-text{
+    text-align:center;
+}
+
+div.scroll-container {
+    background-color: #fff;
+    overflow-x: auto; 
+    white-space: nowrap; 
+    padding: 10px;
+    text-align: center;
+}
+
+div.scroll-container img {
+    padding: 10px;
+    width: 200px; 
+    height: auto; 
+    display: inline-block; 
+    border-radius: 8px; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease; 
+}
+
+div.scroll-container img:hover {
+    transform: scale(1.1); 
+}
+
